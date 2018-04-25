@@ -1,4 +1,6 @@
 import pygame
+import random
+import helpers as hp
 from particle import Particle
 
 # Set screen properties.
@@ -10,8 +12,10 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption('Physics')
 screen.fill(bg_color)
 
-particle = Particle(screen, (150, 50), 40)
-particle.display()
+particles = hp.generate_particles(screen, 50)
+
+for particle in particles:
+    particle.display()
 
 pygame.display.flip()
 
