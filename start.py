@@ -24,6 +24,8 @@ while running:
 
     for particle in particles:
         particle.move()
+        particle.check_edges(screen)
         particle.display()
         
+    # Refresh display
     pygame.display.flip()    

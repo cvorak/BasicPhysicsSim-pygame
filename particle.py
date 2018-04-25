@@ -19,4 +19,16 @@ class Particle:
     def move(self):
         self.x += math.sin(self.angle) * self.speed
         self.y -= math.cos(self.angle) * self.speed
+
+    def check_edges(self, screen):
+        # Get screen dimensions
+        width = screen.get_rect().width
+        height = screen.get_rect().height
+
+        # Right and left edge
+        if self.x > width - self.size or self.x < self.size:
+            self.angle = - self.angle
+        # Top and bottom edge
+        if self.y < self.size or self.y > height - self.size:
+            self.angle = math.pi - self.angle
         
